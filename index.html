@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Es Jardí · Boutique Fincas Mallorca</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Mulish:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f4efe3; --paper-2:#fbf8f0; --ink:#2c3326; --ink-soft:#6a6a55;
+    --terra:#b85c38; --terra-2:#a04e2e; --olive:#5e6b4a; --gold:#c79a4c;
+    --line:rgba(44,51,38,.14); --card-sh:0 18px 40px rgba(44,51,38,.10);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{background:var(--paper);color:var(--ink);font-family:"Mulish",system-ui,sans-serif;
+       font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,.disp{font-family:"Fraunces",Georgia,serif;font-weight:500;letter-spacing:-.01em}
+  a{color:inherit}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+
+  nav{display:flex;align-items:center;justify-content:space-between;padding:26px 0;border-bottom:1px solid var(--line)}
+  .brand{font-family:"Fraunces",serif;font-size:25px;font-weight:600;letter-spacing:.01em}
+  .brand b{color:var(--terra)}
+  .nav-links{display:flex;gap:30px;font-size:14px;color:var(--ink-soft)}
+  @media(max-width:720px){.nav-links{display:none}}
+
+  .hero{position:relative;padding:92px 0 70px;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;z-index:0;
+    background:
+      radial-gradient(900px 460px at 82% -10%, rgba(199,154,76,.20), transparent 60%),
+      radial-gradient(680px 460px at 4% 116%, rgba(94,107,74,.16), transparent 58%);}
+  .hero .wrap{position:relative;z-index:1}
+  .eyebrow{font-size:13px;letter-spacing:.3em;text-transform:uppercase;color:var(--terra);margin-bottom:22px}
+  .hero h1{font-size:clamp(46px,7.4vw,90px);line-height:1.0;margin:0 0 22px;max-width:14ch}
+  .hero h1 em{font-style:italic;color:var(--olive)}
+  .lede{font-size:19px;max-width:50ch;color:var(--ink-soft);margin:0 0 34px}
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:9px;padding:14px 28px;border-radius:40px;font-weight:700;
+       font-size:14px;letter-spacing:.02em;text-decoration:none;cursor:pointer;border:none}
+  .btn-terra{background:var(--terra);color:#fff}
+  .btn-terra:hover{background:var(--terra-2)}
+  .btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:var(--terra)}
+
+  section{padding:74px 0;border-top:1px solid var(--line)}
+  .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:40px}
+  .sec-head h2{font-size:clamp(30px,4vw,46px);margin:0}
+  .sec-head p{color:var(--ink-soft);margin:0;font-size:15px;max-width:38ch}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  @media(max-width:900px){.grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:620px){.grid{grid-template-columns:1fr}}
+  .card{background:var(--paper-2);border:1px solid var(--line);border-radius:8px;overflow:hidden;
+        display:flex;flex-direction:column;box-shadow:var(--card-sh)}
+  .card .ph{height:188px;position:relative}
+  .ph.p1{background:linear-gradient(155deg,#7e864f,#4a512f 75%)}
+  .ph.p2{background:linear-gradient(155deg,#cf9a5e,#7c5230 76%)}
+  .ph.p3{background:linear-gradient(155deg,#5f93a0,#2f4f57 74%)}
+  .ph .tag{position:absolute;top:14px;left:14px;background:rgba(255,251,243,.86);
+           color:var(--terra-2);font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:6px 11px;border-radius:30px;font-weight:700}
+  .card .body{padding:20px 20px 24px}
+  .card h3{margin:0 0 4px;font-size:26px}
+  .card .loc{color:var(--ink-soft);font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px}
+  .card .price{font-family:"Fraunces",serif;font-size:24px;color:var(--terra);margin-top:14px}
+  .card .meta{display:flex;gap:16px;font-size:13px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:14px;margin-top:auto}
+
+  footer{padding:46px 0;border-top:1px solid var(--line);color:var(--ink-soft);font-size:13px;
+         display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
+
+  /* chat */
+  .launcher{position:fixed;right:24px;bottom:24px;z-index:60;display:flex;align-items:center;gap:12px;
+            background:var(--terra);color:#fff;border:none;cursor:pointer;border-radius:50px;
+            padding:14px 20px 14px 16px;font-family:"Mulish";font-weight:700;font-size:14px;
+            box-shadow:0 14px 38px rgba(184,92,56,.4);transition:transform .15s}
+  .launcher:hover{transform:translateY(-2px);background:var(--terra-2)}
+  .launcher .dot{width:9px;height:9px;border-radius:50%;background:#fff;box-shadow:0 0 0 4px rgba(255,255,255,.25)}
+
+  .panel{position:fixed;right:24px;bottom:24px;z-index:61;width:390px;max-width:calc(100vw - 32px);
+         height:600px;max-height:calc(100vh - 40px);background:var(--paper-2);border:1px solid var(--line);
+         border-radius:16px;box-shadow:0 30px 70px rgba(44,51,38,.28);display:none;flex-direction:column;overflow:hidden}
+  .panel.open{display:flex}
+  .p-head{padding:16px 18px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px;background:var(--olive);color:#fbf8f0}
+  .p-head .av{width:38px;height:38px;border-radius:50%;background:linear-gradient(140deg,var(--terra),var(--gold));
+              display:flex;align-items:center;justify-content:center;font-family:"Fraunces",serif;font-size:19px;color:#fff;font-weight:600}
+  .p-head .t{flex:1}
+  .p-head .t b{display:block;font-size:15px}
+  .p-head .t small{color:rgba(251,248,240,.75);font-size:12px}
+  .status{display:inline-flex;align-items:center;gap:6px;font-size:11px;color:rgba(251,248,240,.8)}
+  .status .s-dot{width:7px;height:7px;border-radius:50%;background:#cfc7b0}
+  .status.live .s-dot{background:#7fd9a0}
+  .status.demo .s-dot{background:var(--gold)}
+  .p-close{background:none;border:none;color:rgba(251,248,240,.85);font-size:22px;cursor:pointer;line-height:1;padding:4px}
+
+  .msgs{flex:1;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:12px}
+  .msg{max-width:84%;padding:11px 14px;border-radius:14px;font-size:14.5px;line-height:1.5;white-space:pre-wrap}
+  .msg.bot{align-self:flex-start;background:#fff;border:1px solid var(--line);border-bottom-left-radius:4px}
+  .msg.me{align-self:flex-end;background:var(--terra);color:#fff;border-bottom-right-radius:4px;font-weight:500}
+  .typing{align-self:flex-start;color:var(--ink-soft);font-size:13px;padding:4px 6px}
+  .typing i{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--ink-soft);margin-right:3px;animation:b 1s infinite}
+  .typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+  @keyframes b{0%,60%,100%{opacity:.3}30%{opacity:1}}
+
+  .lead{border-top:1px solid var(--line);padding:10px 16px;background:#fff;display:none}
+  .lead.show{display:block}
+  .lead .lh{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--terra);margin-bottom:8px;display:flex;align-items:center;gap:8px;font-weight:700}
+  .lead .lh .q{margin-left:auto;font-size:10px;letter-spacing:.06em;padding:2px 8px;border-radius:20px;background:rgba(94,107,74,.16);color:var(--olive)}
+  .lead .lh .q.no{background:rgba(44,51,38,.07);color:var(--ink-soft)}
+  .lead .rows{display:grid;grid-template-columns:1fr 1fr;gap:4px 14px;font-size:12.5px}
+  .lead .rows div{display:flex;justify-content:space-between;gap:8px;color:var(--ink-soft);border-bottom:1px dotted var(--line);padding:3px 0}
+  .lead .rows b{color:var(--ink);font-weight:700;text-align:right}
+
+  .composer{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line);background:var(--paper-2)}
+  .composer input{flex:1;background:#fff;border:1px solid var(--line);color:var(--ink);
+                  border-radius:22px;padding:11px 16px;font-family:"Mulish";font-size:14px;outline:none}
+  .composer input:focus{border-color:var(--terra)}
+  .composer button{background:var(--terra);border:none;color:#fff;width:42px;height:42px;border-radius:50%;
+                   cursor:pointer;font-size:17px;display:flex;align-items:center;justify-content:center}
+  .composer button:hover{background:var(--terra-2)}
+  .nudges{display:flex;gap:7px;flex-wrap:wrap;padding:0 12px 12px;background:var(--paper-2)}
+  .nudge{font-size:12px;color:var(--ink-soft);border:1px solid var(--line);background:transparent;border-radius:20px;padding:6px 12px;cursor:pointer}
+  .nudge:hover{border-color:var(--terra);color:var(--ink)}
+  .powered{text-align:center;font-size:10.5px;letter-spacing:.1em;color:var(--ink-soft);padding:0 0 9px;background:var(--paper-2)}
+  .powered b{color:var(--terra)}
+</style>
+</head>
+<body>
+  <header class="wrap">
+    <nav>
+      <div class="brand">Es Jardí <b>·</b> Fincas</div>
+      <div class="nav-links"><span>Unterkünfte</span><span>Lage</span><span>Über uns</span><span>Buchen</span></div>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <div class="wrap">
+      <div class="eyebrow">Boutique-Fincas & Suiten · Serra de Tramuntana</div>
+      <h1>Ankommen, <em>durchatmen</em>, bleiben.</h1>
+      <p class="lede">Handverlesene Fincas und Suiten zwischen Olivenhainen und Meer — persönlich betreut, dreisprachig, mit Liebe zum Detail.</p>
+      <div class="cta-row">
+        <button class="btn btn-terra" onclick="openChat()">Anfrage stellen →</button>
+        <a class="btn btn-ghost" href="#unterkuenfte">Unterkünfte ansehen</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="unterkuenfte">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Unsere Häuser</h2>
+        <p>Eine Auswahl. Weitere Fincas & Suiten auf Anfrage.</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div class="ph p1"><span class="tag">Finca</span></div>
+          <div class="body">
+            <h3>Finca Es Verger</h3>
+            <div class="loc">Sóller · Tal & Pool</div>
+            <div>4 Schlafzimmer · privater Pool · Olivenhain · bis 8 Gäste</div>
+            <div class="price">ab 680 € / Nacht</div>
+            <div class="meta"><span>Ref. EJ-01</span><span>Agroturismo</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="ph p2"><span class="tag">Suite</span></div>
+          <div class="body">
+            <h3>Suite Tramuntana</h3>
+            <div class="loc">Deià · Bergblick</div>
+            <div>Boutique-Hotel · 1 Schlafzimmer · Terrasse · 2 Gäste</div>
+            <div class="price">ab 390 € / Nacht</div>
+            <div class="meta"><span>Ref. EJ-07</span><span>Hotel</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="ph p3"><span class="tag">Villa</span></div>
+          <div class="body">
+            <h3>Villa Cala</h3>
+            <div class="loc">Santanyí · am Meer</div>
+            <div>5 Schlafzimmer · Meerzugang · Pool · bis 10 Gäste</div>
+            <div class="price">ab 1.200 € / Nacht</div>
+            <div class="meta"><span>Ref. EJ-12</span><span>Villa</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <footer class="wrap">
+    <span>Es Jardí Boutique Fincas · Sóller, Mallorca · (Demo-Objekt von nøho studio)</span>
+    <span>DE · EN · ES</span>
+  </footer>
+
+  <button class="launcher" id="launcher" onclick="openChat()"><span class="dot"></span> Verfügbarkeit anfragen</button>
+
+  <div class="panel" id="panel">
+    <div class="p-head">
+      <div class="av">J</div>
+      <div class="t">
+        <b>Joana · Gastgeberin</b>
+        <small><span class="status demo" id="status"><span class="s-dot"></span><span id="statusText">Demo-Modus</span></span></small>
+      </div>
+      <button class="p-close" onclick="closeChat()">×</button>
+    </div>
+
+    <div class="msgs" id="msgs"></div>
+
+    <div class="lead" id="lead">
+      <div class="lh">Anfrage-Erfassung<span class="q no" id="qBadge">offen</span></div>
+      <div class="rows" id="leadRows"></div>
+    </div>
+
+    <div class="nudges" id="nudges">
+      <button class="nudge" onclick="quick('Hola, buscamos una finca con piscina para 6 personas en septiembre')">🇪🇸 Finca · septiembre</button>
+      <button class="nudge" onclick="quick('Hi, a suite for 2 in Deià, first week of August')">🇬🇧 Suite · August</button>
+      <button class="nudge" onclick="quick('Hallo, wir suchen eine Finca für 8 Personen, 10. bis 17. Juli')">🇩🇪 Finca · Juli</button>
+    </div>
+
+    <div class="composer">
+      <input id="input" placeholder="Nachricht schreiben… (DE / EN / ES)" autocomplete="off"
+             onkeydown="if(event.key==='Enter')send()">
+      <button onclick="send()" aria-label="Senden">→</button>
+    </div>
+    <div class="powered">betrieben mit KI · <b>nøho studio</b></div>
+  </div>
+
+<script>
+const API = (location.protocol === 'file:') ? 'http://localhost:8000' : '';
+let LIVE = false;
+let messages = [];
+let lead = null;
+
+const GREETING = "¡Hola! Hello! Hallo! 🌿 Ich bin Joana von Es Jardí. Ich helfe Ihnen auf Deutsch, English oder Español, die passende Finca oder Suite zu finden. Wann und für wie viele Gäste planen Sie?";
+
+function openChat(){document.getElementById('panel').classList.add('open');document.getElementById('launcher').style.display='none';if(messages.length===0)addBot(GREETING);document.getElementById('input').focus();}
+function closeChat(){document.getElementById('panel').classList.remove('open');document.getElementById('launcher').style.display='flex';}
+function el(cls,txt){const d=document.createElement('div');d.className=cls;d.textContent=txt;return d;}
+function scroll(){const m=document.getElementById('msgs');m.scrollTop=m.scrollHeight;}
+function addBot(t){document.getElementById('msgs').appendChild(el('msg bot',t));scroll();}
+function addMe(t){document.getElementById('msgs').appendChild(el('msg me',t));scroll();}
+function typing(on){const m=document.getElementById('msgs');let t=document.getElementById('typing');
+  if(on&&!t){t=document.createElement('div');t.id='typing';t.className='typing';t.innerHTML='<i></i><i></i><i></i>';m.appendChild(t);scroll();}
+  if(!on&&t)t.remove();}
+function quick(t){document.getElementById('input').value=t;send();}
+
+const LABELS={name:'Name',property_type:'Unterkunft',guests:'Gäste',dates:'Reisezeitraum',area:'Region',budget:'Budget/Nacht',contact:'Kontakt'};
+const TYPE_DE={finca:'Finca',suite:'Suite / Hotel',villa:'Villa',unklar:'—'};
+function renderLead(){
+  if(!lead)return;
+  document.getElementById('lead').classList.add('show');
+  const rows=document.getElementById('leadRows');rows.innerHTML='';
+  for(const k of ['name','property_type','guests','dates','area','budget','contact']){
+    let v=(lead[k]&&String(lead[k]).trim())?lead[k]:'—';
+    if(k==='property_type')v=TYPE_DE[lead[k]]||'—';
+    const d=document.createElement('div');d.innerHTML=`<span>${LABELS[k]}</span><b>${v}</b>`;rows.appendChild(d);
+  }
+  const q=document.getElementById('qBadge');
+  if(lead.qualified){q.textContent='qualifiziert ✓';q.classList.remove('no');}
+  else{q.textContent='offen';q.classList.add('no');}
+}
+
+async function send(){
+  const inp=document.getElementById('input');const text=inp.value.trim();if(!text)return;inp.value='';
+  addMe(text);messages.push({role:'user',content:text});typing(true);
+  let data;
+  try{
+    if(LIVE){
+      const r=await fetch(API+'/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages})});
+      if(!r.ok)throw new Error('api '+r.status);data=await r.json();
+    }else{data=fallbackBrain(messages);}
+  }catch(e){data=fallbackBrain(messages);}
+  typing(false);addBot(data.reply);messages.push({role:'assistant',content:data.reply});
+  if(data.lead){lead={...data.lead,qualified:data.qualified};renderLead();}
+}
+
+/* demo brain (offline fallback) — booking logic */
+function detectLang(t){t=' '+t.toLowerCase()+' ';
+  if(/[áéíóúñ¿¡]|hola|buscamos|busco|gracias|personas|piscina|noche|septiembre|agosto/.test(t))return'es';
+  if(/\b(the|looking|hello|hi|want|please|week|night|guests|finca|suite|villa|august|july)\b/.test(t))return'en';
+  return'de';}
+function scanLead(history){
+  const all=history.filter(m=>m.role==='user').map(m=>m.content).join('  ').toLowerCase();
+  const L={name:'',property_type:'unklar',guests:'',dates:'',area:'',budget:'',contact:''};
+  if(/\bfinca\b/.test(all))L.property_type='finca';
+  else if(/\bvilla\b/.test(all))L.property_type='villa';
+  else if(/\b(suite|hotel|zimmer|room|habitaci|doppelzimmer)\b/.test(all))L.property_type='suite';
+  const g=all.match(/(\d{1,2})\s*(gäste|gaeste|guests|personen|person|personas|pax|people|leute|adults|erwachsene|huéspedes|huespedes)/);
+  if(g)L.guests=g[1];
+  const months='januar|enero|february|februar|febrero|march|märz|marzo|april|abril|may|mai|mayo|june|juni|junio|july|juli|julio|august|agosto|september|septiembre|october|oktober|octubre|november|noviembre|december|dezember|diciembre';
+  const range=all.match(new RegExp('(\\d{1,2}\\.?\\s*(?:bis|al|to|-|–)\\s*\\d{1,2}\\.?\\s*('+months+')?)'));
+  const single=all.match(new RegExp('(?:im |en |in |first week of |primera semana de )?\\b('+months+')\\b'));
+  if(range)L.dates=range[0].trim();
+  else if(single)L.dates=single[0].trim().replace(/^(im|en|in)\s+/,'');
+  const towns=['sóller','soller','deià','deia','santanyí','santanyi','pollença','pollensa','valldemossa','palma','tramuntana','artà','arta'];
+  for(const t of towns){if(all.includes(t)){L.area=t.replace(/\b\w/g,c=>c.toUpperCase());break;}}
+  const b=all.match(/(\d[\d.,]*)\s*(€|euro|\/nacht|\/noche|\/night|nacht|noche|night)/);if(b)L.budget=b[0].toUpperCase().replace('EURO','€');
+  const em=all.match(/[\w.+-]+@[\w-]+\.[\w.-]+/);if(em)L.contact=em[0];
+  L.qualified=!!(L.dates && L.guests && L.property_type!=='unklar');
+  return L;
+}
+function fallbackBrain(history){
+  const last=history[history.length-1].content;const lang=detectLang(last);const L=scanLead(history);
+  const order=[];
+  if(L.property_type==='unklar')order.push('type');
+  if(!L.guests)order.push('guests');
+  if(!L.dates)order.push('dates');
+  if(!L.contact)order.push('contact');
+  const ask={
+    de:{type:'Darf es eine Finca, eine Suite im Boutique-Hotel oder eine Villa sein?',guests:'Für wie viele Gäste planen Sie?',dates:'Für welchen Reisezeitraum darf ich die Verfügbarkeit prüfen?',contact:'Sehr gern sende ich Ihnen passende Häuser mit Verfügbarkeit — wie erreiche ich Sie am besten (E-Mail)?'},
+    en:{type:'Would you prefer a finca, a boutique-hotel suite, or a villa?',guests:'How many guests are you planning for?',dates:'Which dates should I check availability for?',contact:'I’d be glad to send matching homes with availability — what’s the best email to reach you?'},
+    es:{type:'¿Prefiere una finca, una suite en el hotel boutique o una villa?',guests:'¿Para cuántos huéspedes?',dates:'¿Para qué fechas le compruebo disponibilidad?',contact:'Con gusto le envío opciones con disponibilidad — ¿cuál es su mejor correo de contacto?'}
+  }[lang];
+  const ack={de:'Sehr gern. ',en:'Of course. ',es:'Con mucho gusto. '}[lang];
+  let reply;
+  if(order.length){reply=ack+ask[order[0]];}
+  else{reply={de:`Wunderbar — ich habe alles. Eine Kollegin meldet sich kurzfristig unter ${L.contact} mit verfügbaren Häusern für ${L.guests} Gäste (${L.dates}). Bis bald auf Mallorca!`,
+             en:`Wonderful — I have everything. A colleague will reach out shortly at ${L.contact} with available homes for ${L.guests} guests (${L.dates}). See you on Mallorca!`,
+             es:`Maravilloso — lo tengo todo. Una colega le escribirá en breve a ${L.contact} con casas disponibles para ${L.guests} huéspedes (${L.dates}). ¡Hasta pronto en Mallorca!`}[lang];}
+  return {reply,language:lang,lead:L,qualified:L.qualified};
+}
+
+(async()=>{try{const r=await fetch(API+'/api/health');const j=await r.json();
+  if(j.live){LIVE=true;const s=document.getElementById('status');s.classList.remove('demo');s.classList.add('live');
+    document.getElementById('statusText').textContent='Live-KI · Claude';}}catch(e){}})();
+</script>
+</body>
+</html>
