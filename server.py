@@ -12,12 +12,36 @@ Start (Live-KI):
 
 Ohne Key / ohne Server läuft index.html im Demo-Modus (Datei doppelklicken).
 """
-import json, os, http.server, socketserver
+import json, os, http.server, socketserver, urllib.request
 from pathlib import Path
 
 MODEL = "claude-opus-4-8"
 PORT  = int(os.environ.get("PORT", "8000"))
 HERE  = Path(__file__).parent
+
+# --- Inbound-Pipeline: qualifizierte Leads an Make-Webhook posten ---
+BRANCHE = "Hospitality"
+BOT     = "Es Jardí (Hotel)"
+MAKE_WEBHOOK = os.environ.get("MAKE_WEBHOOK_URL", "https://hook.eu1.make.com/1dhe57i30eidehkz2543rp30m6s0ch1u")
+
+def forward_lead(text):
+    """Qualifizierten Lead serverseitig an den Make-Webhook posten (fire-and-forget)."""
+    if not MAKE_WEBHOOK:
+        return
+    try:
+        data = json.loads(text)
+        if not data.get("qualified"):
+            return
+        payload = json.dumps({
+            "branche": BRANCHE, "bot": BOT,
+            "language": data.get("language", ""),
+            "lead": data.get("lead", {}), "qualified": True,
+        }).encode("utf-8")
+        req = urllib.request.Request(MAKE_WEBHOOK, data=payload,
+                                     headers={"Content-Type": "application/json"}, method="POST")
+        urllib.request.urlopen(req, timeout=5).read()
+    except Exception:
+        pass
 
 SYSTEM = """Du bist „Joana", die digitale Gastgeberin & Reservierungs-Assistentin von
 **Es Jardí Boutique Fincas** auf Mallorca (Sóller, Serra de Tramuntana) — eine kleine
@@ -127,6 +151,7 @@ class Handler(http.server.BaseHTTPRequestHandler):
                 output_config={"format": {"type": "json_schema", "schema": SCHEMA}},
             )
             text = next(b.text for b in resp.content if b.type == "text")
+            forward_lead(text)     # qualifizierten Lead an Make/CRM weiterreichen
             self._send(200, text)
         except Exception as e:
             self._send(500, json.dumps({"error": str(e)}))
